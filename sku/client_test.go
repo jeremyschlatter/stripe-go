@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	stripe "github.com/stripe-internal/stripe-go"
-	"github.com/stripe-internal/stripe-go/product"
-	. "github.com/stripe-internal/stripe-go/utils"
+	stripe "github.com/stripe/stripe-go"
+	"github.com/stripe/stripe-go/product"
+	. "github.com/stripe/stripe-go/utils"
 )
 
 func init() {

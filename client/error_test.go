@@ -3,7 +3,7 @@ package client
 import (
 	"testing"
 
-	. "github.com/stripe-internal/stripe-go"
+	. "github.com/stripe/stripe-go"
 )
 
 func TestErrors(t *testing.T) {
