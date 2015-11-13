@@ -15,6 +15,7 @@ type SKUParams struct {
 	Inventory         Inventory
 	Product           string
 	PackageDimensions *PackageDimensions
+	Meta              map[string]string
 }
 
 type Inventory struct {

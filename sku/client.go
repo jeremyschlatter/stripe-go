@@ -80,6 +80,12 @@ func (c Client) New(params *stripe.SKUParams) (*stripe.SKU, error) {
 				fmt.Sprintf("%.2f", params.PackageDimensions.Weight))
 		}
 
+		if len(params.Meta) > 0 {
+			for k, v := range params.Attrs {
+				body.Add(fmt.Sprintf("attributes[%v]", k), v)
+			}
+		}
+
 		params.AppendTo(body)
 	}
 
@@ -147,6 +153,12 @@ func (c Client) Update(id string, params *stripe.SKUParams) (*stripe.SKU, error)
 				fmt.Sprintf("%.2f", params.PackageDimensions.Width))
 			body.Add("package_dimensions[weight]",
 				fmt.Sprintf("%.2f", params.PackageDimensions.Weight))
+		}
+
+		if len(params.Meta) > 0 {
+			for k, v := range params.Attrs {
+				body.Add(fmt.Sprintf("attributes[%v]", k), v)
+			}
 		}
 
 		params.AppendTo(body)

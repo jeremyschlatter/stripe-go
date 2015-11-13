@@ -27,6 +27,7 @@ type ProductParams struct {
 	URL               string
 	Shippable         *bool
 	PackageDimensions *PackageDimensions
+	Meta              map[string]string
 	// gate: `enable_relay_charity_support`
 	Donation *bool
 }
