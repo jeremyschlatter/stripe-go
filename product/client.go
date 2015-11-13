@@ -80,10 +80,8 @@ func (c Client) New(params *stripe.ProductParams) (*stripe.Product, error) {
 				fmt.Sprintf("%.2f", params.PackageDimensions.Weight))
 		}
 
-		if len(params.Meta) > 0 {
-			for k, v := range params.Attrs {
-				body.Add(fmt.Sprintf("attributes[%v]", k), v)
-			}
+		for k, v := range params.Meta {
+			params.AddMeta(k, v)
 		}
 
 		if params.Donation != nil {
@@ -136,10 +134,8 @@ func (c Client) Update(id string, params *stripe.ProductParams) (*stripe.Product
 			body.Add("url", params.URL)
 		}
 
-		if len(params.Meta) > 0 {
-			for k, v := range params.Attrs {
-				body.Add(fmt.Sprintf("attributes[%v]", k), v)
-			}
+		for k, v := range params.Meta {
+			params.AddMeta(k, v)
 		}
 
 		if params.Donation != nil {
